@@ -1,4 +1,10 @@
-title: Frugaliz Blog
-baseurl: "/frugaliz-blog" # Indispensable car ton dépôt n'est pas à la racine
-url: "https://frugaliz.github.io"
-remote_theme: pages-themes/slate
+title: Frugaliz Autopiloté
+description: Les meilleures pépites high-tech dénichées par l'IA.
+baseurl: "/frugaliz-blog" 
+url: "https://Frugaliz.github.io"
+
+# Thème sombre et moderne (pour tes yeux !)
+remote_theme: pages-themes/architect # Ou 'pages-themes/midnight' pour du très sombre
+
+# Paramètres de lecture
+permalink: /fr/:year/:month/:day/:title.html

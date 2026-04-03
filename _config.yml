@@ -1,4 +1,4 @@
 title: Frugaliz Blog
-remote_theme: pages-themes/slate # Ou un autre thème de ton choix
-plugins:
-  - jekyll-feed
+baseurl: "/frugaliz-blog" # Indispensable car ton dépôt n'est pas à la racine
+url: "https://frugaliz.github.io"
+remote_theme: pages-themes/slate

@@ -1,0 +1,4 @@
+title: Frugaliz Blog
+remote_theme: pages-themes/slate # Ou un autre thème de ton choix
+plugins:
+  - jekyll-feed

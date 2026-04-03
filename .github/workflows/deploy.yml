@@ -1,0 +1,15 @@
+name: Manual and Auto Deploy
+on:
+  workflow_dispatch: # ✅ Ceci crée le bouton "Run workflow" magique
+  push:
+    branches:
+      - main
+    paths:
+      - '_posts/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger GitHub Pages Deploy
+        uses: actions/checkout@v4

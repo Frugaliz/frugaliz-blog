@@ -5,7 +5,7 @@ url: "https://Frugaliz.github.io"
 
 remote_theme: pages-themes/midnight
 
-permalink: /:lang/:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title.html
 
 defaults:
   - scope:

@@ -1,10 +1,18 @@
-title: Frugaliz Autopiloté
-description: Les meilleures pépites high-tech dénichées par l'IA.
-baseurl: "/frugaliz-blog" 
+title: Frugaliz
+description: Trié par l'IA. Validé pour toi.
+baseurl: "/frugaliz-blog"
 url: "https://Frugaliz.github.io"
 
-# Thème sombre et moderne (pour tes yeux !)
-remote_theme: pages-themes/architect # Ou 'pages-themes/midnight' pour du très sombre
+remote_theme: pages-themes/midnight
 
-# Paramètres de lecture
-permalink: /fr/:year/:month/:day/:title.html
+permalink: /:lang/:year/:month/:day/:title.html
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+plugins:
+  - jekyll-remote-theme

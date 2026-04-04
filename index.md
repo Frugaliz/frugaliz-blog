@@ -208,20 +208,6 @@ title: Frugaliz
     margin: 0;
   }
 
-  /* ── Footer ── */
-  .fg-footer {
-    text-align: center;
-    padding: 48px 0 0;
-    border-top: 1px solid #1a1a1a;
-    margin-top: 64px;
-  }
-  .fg-footer p {
-    color: #333;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 0;
-  }
 </style>
 
 <div class="main-content">
@@ -287,9 +273,5 @@ title: Frugaliz
   </div>
   {% endif %}
 
-  <!-- Footer -->
-  <div class="fg-footer">
-    <p>Frugaliz — pipeline automatisé · aucun article sponsorisé</p>
-  </div>
 
 </div>

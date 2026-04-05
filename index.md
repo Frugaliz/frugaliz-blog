@@ -263,7 +263,7 @@ title: Frugaliz
         {% endif %}
       </div>
       <h2 class="fg-card-title">{{ post.title }}</h2>
-      <p class="fg-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+      <p class="fg-card-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.title }}{% endif %}</p>
       <div class="fg-card-footer">
         <span class="fg-read-more">Lire l'analyse</span>
         <span class="fg-arrow">→</span>

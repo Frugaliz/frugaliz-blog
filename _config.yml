@@ -16,3 +16,10 @@ defaults:
 
 plugins:
   - jekyll-remote-theme
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  html_to_native: true
+
+markdown: kramdown

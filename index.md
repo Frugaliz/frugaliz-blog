@@ -38,7 +38,7 @@ title: Frugaliz
     margin-bottom: 10px;
   }
   .fg-tagline {
-    color: #444;
+    color: #888;
     font-size: 11px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -62,7 +62,7 @@ title: Frugaliz
     display: block;
   }
   .fg-stat-label {
-    color: #444;
+    color: #888;
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -100,12 +100,11 @@ title: Frugaliz
     background: #111;
     border: 1px solid #1e1e1e;
     border-radius: 12px;
-    padding: 24px;
+    overflow: hidden;
     text-decoration: none;
     display: block;
     transition: border-color 0.2s, background 0.2s;
     position: relative;
-    overflow: hidden;
   }
   .fg-card:hover {
     border-color: #2a2a2a;
@@ -119,8 +118,37 @@ title: Frugaliz
     background: linear-gradient(90deg, #00ffaa, #00ccff);
     opacity: 0;
     transition: opacity 0.2s;
+    z-index: 1;
   }
   .fg-card:hover .fg-card-accent { opacity: 1; }
+
+  /* ── Image vignette ── */
+  .fg-card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #141414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .fg-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+  }
+  .fg-card:hover .fg-card-image img {
+    transform: scale(1.04);
+  }
+
+  /* ── Corps de la card ── */
+  .fg-card-body {
+    padding: 20px 24px 24px;
+  }
 
   .fg-card-meta {
     display: flex;
@@ -129,7 +157,7 @@ title: Frugaliz
     margin-bottom: 12px;
   }
   .fg-card-date {
-    color: #444;
+    color: #888;
     font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -149,7 +177,7 @@ title: Frugaliz
   .fg-score-high  { color: #00ffaa; border-color: #00ffaa22; background: #00ffaa0d; }
   .fg-score-mid   { color: #00ccff; border-color: #00ccff22; background: #00ccff0d; }
   .fg-score-low   { color: #ff6b6b; border-color: #ff6b6b22; background: #ff6b6b0d; }
-  .fg-score-label { color: #333; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .fg-score-label { color: #888; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
 
   .fg-card-title {
     color: #e0e0e0;
@@ -159,7 +187,7 @@ title: Frugaliz
     margin: 0 0 10px;
   }
   .fg-card-excerpt {
-    color: #555;
+    color: #888;
     font-size: 13px;
     line-height: 1.65;
     margin: 0 0 18px;
@@ -182,7 +210,7 @@ title: Frugaliz
     text-transform: uppercase;
   }
   .fg-arrow {
-    color: #333;
+    color: #888;
     font-size: 16px;
     transition: color 0.2s, transform 0.2s;
   }
@@ -195,7 +223,7 @@ title: Frugaliz
   .fg-empty {
     text-align: center;
     padding: 80px 0;
-    color: #333;
+    color: #888;
   }
   .fg-empty-icon {
     font-size: 32px;
@@ -253,25 +281,33 @@ title: Frugaliz
 
     <a class="fg-card" href="{{ site.baseurl }}{{ post.url }}">
       <div class="fg-card-accent"></div>
-      <div class="fg-card-meta">
-        <span class="fg-card-date">{{ post.date | date: "%d %b %Y" }}</span>
-        {% if score > 0 %}
-        <div class="fg-card-score">
-          <span class="fg-score-label">Score</span>
-          <span class="fg-score-badge {{ score_class }}">{{ score }}/100</span>
-        </div>
-        {% endif %}
+
+      {% if post.image %}
+      <div class="fg-card-image">
+        <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" />
       </div>
-      <h2 class="fg-card-title">{{ post.title }}</h2>
-      <p class="fg-card-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.title }}{% endif %}</p>
-      <div class="fg-card-footer">
-        <span class="fg-read-more">Lire l'analyse</span>
-        <span class="fg-arrow">→</span>
+      {% endif %}
+
+      <div class="fg-card-body">
+        <div class="fg-card-meta">
+          <span class="fg-card-date">{{ post.date | date: "%d %b %Y" }}</span>
+          {% if score > 0 %}
+          <div class="fg-card-score">
+            <span class="fg-score-label">Score</span>
+            <span class="fg-score-badge {{ score_class }}">{{ score }}/100</span>
+          </div>
+          {% endif %}
+        </div>
+        <h2 class="fg-card-title">{{ post.title }}</h2>
+        <p class="fg-card-excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.title }}{% endif %}</p>
+        <div class="fg-card-footer">
+          <span class="fg-read-more">Lire l'analyse</span>
+          <span class="fg-arrow">→</span>
+        </div>
       </div>
     </a>
     {% endfor %}
   </div>
   {% endif %}
-
 
 </div>
